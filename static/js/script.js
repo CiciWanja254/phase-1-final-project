@@ -1,4 +1,46 @@
-document.addEventListener("DOMContentLoaded", () => {
+class Cart {
+    constructor() {
+      this.items = [];
+    }
+
+    addItem(item) {
+      const existingItem = this.items.find((i) => i.name === item.name);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        this.items.push({ ...item, quantity: 1 });
+      }
+    }
+
+    removeItem(item) {
+      const existingItem = this.items.find((i) => i.name === item.name);
+      if (existingItem) {
+        if (existingItem.quantity > 1) {
+          existingItem.quantity -= 1;
+        } else {
+          this.items = this.items.filter((i) => i.name !== item.name);
+        }
+      }
+    }
+
+    getTotal() {
+      return this.items.reduce((total, item) => {
+        return total + item.price * item.quantity;
+      }, 0);
+    }
+
+    getQuantity() {
+      return this.items.reduce((total, item) => {
+        return total + item.quantity;
+      }, 0);
+    }
+
+    clear() {
+      this.items = [];
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
     fetch("https://wide254.pythonanywhere.com/api/cici/products")
       .then((response) => response.json())
       .then((data) => {
@@ -32,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           button.addEventListener("click", () => {
             const item = product;
-            cart.push(item);
+            cart.addItem(item);
             updateCart();
           });
 
@@ -48,12 +90,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartTotal = document.querySelector(".cart-total span");
   const checkoutBtn = document.querySelector(".checkout");
   const closeBtn = document.querySelector(".close-cart");
-
-  let cart = [];
+  const cart = new Cart();
 
   // Add event listener to cart button to toggle cart nav
   cartBtn.addEventListener("click", () => {
     cartNav.classList.toggle("open");
+    updateCart();
   });
 
   closeBtn.addEventListener("click", () => {
@@ -62,9 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Add event listener to checkout button to clear cart and show alert
   checkoutBtn.addEventListener("click", () => {
-    if (cart.length > 0) {
+    if (cart.getQuantity() > 0) {
       alert("Thank you for your purchase!");
-      cart = [];
+      cart.clear();
       updateCart();
     }
   });
@@ -73,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateCart() {
     cartList.innerHTML = "";
     let total = 0;
-    cart.forEach((item, index) => {
+    cart.items.forEach((item, index) => {
       const cartItem = document.createElement("li");
       cartItem.classList.add("cart-item");
 
@@ -93,6 +135,10 @@ document.addEventListener("DOMContentLoaded", () => {
       itemPrice.textContent = `Ksh ${item.price.toFixed(2)}`;
       cartItemInfo.appendChild(itemPrice);
 
+      const itemQuantity = document.createElement("p");
+      itemQuantity.textContent = `Qty: ${item.quantity}`;
+      cartItemInfo.appendChild(itemQuantity);
+
       cartItem.appendChild(cartItemInfo);
 
       const removeButton = document.createElement("button");
@@ -101,16 +147,14 @@ document.addEventListener("DOMContentLoaded", () => {
       cartItem.appendChild(removeButton);
 
       removeButton.addEventListener("click", () => {
-        cart.splice(index, 1);
+        cart.removeItem(item);
         updateCart();
       });
 
       cartList.appendChild(cartItem);
 
-      total += item.price;
+      total += item.price * item.quantity;
     });
     cartTotal.textContent = `Ksh ${total.toFixed(2)}`;
-    cartBtn.textContent = `Cart (${cart.length})`;
+    cartBtn.textContent = `Cart (${cart.getQuantity()})`;
   }
-
-
