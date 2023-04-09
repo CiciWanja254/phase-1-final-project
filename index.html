@@ -6,159 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Green Basket</title>
     <link rel="stylesheet" type="text/css" href="./static/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-abc123" crossorigin="anonymous" />
 </head>
 <body>
     <header>
-        <h1>Grocery Store</h1>
+        <h1 style="color: #fff">Grocery Store </h1>
         <button id="cart-btn">
           <i class="fas fa-shopping-cart"></i> Cart (0)
         </button>
       </header>
-  
-      <div class="container">
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/300x200.png?text=Product+1"
-            alt="Product 1"
-          />
-          <h2>Product 1</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus
-            felis sed massa euismod tempus.
-          </p>
-          <button class="add-to-cart" data-name="Product 1" data-price="5.99">
-            Add to Cart
-          </button>
-        </div>
-  
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/300x200.png?text=Product+2"
-            alt="Product 2"
-          />
-          <h2>Product 2</h2>
-          <p>
-            Nullam euismod orci ut massa lobortis commodo. Integer ac tellus eu
-            felis consequat blandit vel a sapien.
-          </p>
-          <button class="add-to-cart" data-name="Product 2" data-price="8.99">
-            Add to Cart
-          </button>
-        </div>
-  
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/300x200.png?text=Product+3"
-            alt="Product 3"
-          />
-          <h2>Product 3</h2>
-          <p>
-            Quisque eu tortor venenatis, luctus augue in, sodales arcu. Sed congue
-            ante quis ante vestibulum lobortis.
-          </p>
-          <button class="add-to-cart" data-name="Product 3" data-price="2.99">
-            Add to Cart
-          </button>
-        </div>
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/300x200.png?text=Product+3"
-            alt="Product 3"
-          />
-          <h2>Product 3</h2>
-          <p>
-            Quisque eu tortor venenatis, luctus augue in, sodales arcu. Sed congue
-            ante quis ante vestibulum lobortis.
-          </p>
-          <button class="add-to-cart" data-name="Product 3" data-price="2.99">
-            Add to Cart
-          </button>
-        </div>
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/300x200.png?text=Product+3"
-            alt="Product 3"
-          />
-          <h2>Product 3</h2>
-          <p>
-            Quisque eu tortor venenatis, luctus augue in, sodales arcu. Sed congue
-            ante quis ante vestibulum lobortis.
-          </p>
-          <button class="add-to-cart" data-name="Product 3" data-price="2.99">
-            Add to Cart
-          </button>
-        </div>
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/300x200.png?text=Product+3"
-            alt="Product 3"
-          />
-          <h2>Product 3</h2>
-          <p>
-            Quisque eu tortor venenatis, luctus augue in, sodales arcu. Sed congue
-            ante quis ante vestibulum lobortis.
-          </p>
-          <button class="add-to-cart" data-name="Product 3" data-price="2.99">
-            Add to Cart
-          </button>
-        </div>
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/300x200.png?text=Product+3"
-            alt="Product 3"
-          />
-          <h2>Product 3</h2>
-          <p>
-            Quisque eu tortor venenatis, luctus augue in, sodales arcu. Sed congue
-            ante quis ante vestibulum lobortis.
-          </p>
-          <button class="add-to-cart" data-name="Product 3" data-price="2.99">
-            Add to Cart
-          </button>
-        </div>
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/300x200.png?text=Product+3"
-            alt="Product 3"
-          />
-          <h2>Product 3</h2>
-          <p>
-            Quisque eu tortor venenatis, luctus augue in, sodales arcu. Sed congue
-            ante quis ante vestibulum lobortis.
-          </p>
-          <button class="add-to-cart" data-name="Product 3" data-price="2.99">
-            Add to Cart
-          </button>
-        </div>
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/300x200.png?text=Product+3"
-            alt="Product 3"
-          />
-          <h2>Product 3</h2>
-          <p>
-            Quisque eu tortor venenatis, luctus augue in, sodales arcu. Sed congue
-            ante quis ante vestibulum lobortis.
-          </p>
-          <button class="add-to-cart" data-name="Product 3" data-price="2.99">
-            Add to Cart
-          </button>
-        </div>
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/300x200.png?text=Product+3"
-            alt="Product 3"
-          />
-          <h2>Product 3</h2>
-          <p>
-            Quisque eu tortor venenatis, luctus augue in, sodales arcu. Sed congue
-            ante quis ante vestibulum lobortis.
-          </p>
-          <button class="add-to-cart" data-name="Product 3" data-price="2.99">
-            Add to Cart
-          </button>
-        </div>
-      </div>
+      <section>
+        <h1>Products</h1>
+        <div class="container"></div>
+      </section>
   
       <nav class="cart-nav">
         <div class="cart-header">
@@ -167,34 +27,13 @@
         </div>
         <ul class="cart-list">
           <!-- cart items will be dynamically added here -->
-          <li class="cart-item">
-            <img
-              src="https://source.unsplash.com/50x50/?grocery"
-              alt="Grocery Item"
-            />
-            <div class="cart-item-info">
-              <h3>Organic Apples</h3>
-              <p>$2.99</p>
-            </div>
-            <button class="remove-from-cart">Remove</button>
-          </li>
-          <li class="cart-item">
-            <img
-              src="https://source.unsplash.com/50x50/?grocery2"
-              alt="Grocery Item"
-            />
-            <div class="cart-item-info">
-              <h3>Fresh Bread</h3>
-              <p>$3.99</p>
-            </div>
-            <button class="remove-from-cart">Remove</button>
-          </li>
         </ul>
         <div class="cart-total">
-          <span>Total: $0.00</span>
-          <button class="checkout">Checkout</button>
+          <span>Total: Ksh 0.00</span>
+          <button class="checkout-btn" id="checkout">Checkout</button>
         </div>
       </nav>
+  
  <script src="./static/js/script.js"></script>
 </body>
 </html>
