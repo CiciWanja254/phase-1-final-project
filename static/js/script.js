@@ -69,7 +69,7 @@ class Cart {
           card.appendChild(name);
 
           const price = document.createElement("p");
-          price.textContent = `Ksh ${product.price.toFixed(2)}`;
+          price.textContent = `Ksh ${product.price.toFixed(2)}/kg`;
           card.appendChild(price);
 
           const button = document.createElement("button");

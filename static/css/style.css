@@ -20,14 +20,61 @@
         cursor: pointer;
       }
 
-      /* Header styles */
       header {
-        background-color: #2d3436;
-        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header nav {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        width: 100%;
+        background-color: #333;
+        color: #fff;
         padding: 1rem;
+      }
+      
+      .logo h1 {
+        color: #fff;
+        margin: 0;
+      }
+      
+      .cart button {
+        background-color: #fff;
+        color: #333;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        background-image: url('https://images-ext-1.discordapp.net/external/UqfHfmZVB5ZRw0ji1QDJzTN-Vrj8W9XYyphFk6WkIv0/https/vita-grown.com/wp-content/uploads/2020/05/fruits.png');
+        background-size: cover;
+        background-position: center;
+      }
+      
+      .hero-overlay {
+        border-radius: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0,0,0,0.5);
+        padding: 1rem;
+        text-align: center;
+        width: 80%;
+        max-width: 600px;
+        color: #fff;
+      }
+      
+      .hero-overlay h2 {
+        margin: 0;
+        font-size: 3rem;
       }
 
       #cart-btn {
