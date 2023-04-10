@@ -59,10 +59,38 @@ class Cart {
           card.setAttribute("id", `product-card-${product.id}`);
           card.classList.add("card");
 
+          const imageContainer = document.createElement('div');
+          imageContainer.classList.add('image-container');
+
           const image = document.createElement("img");
           image.src = product.image;
           image.alt = product.name;
-          card.appendChild(image);
+          image.classList.add('product-image');
+
+          const textOverlay = document.createElement('div');
+          textOverlay.classList.add('text-overlay');
+          textOverlay.innerText = `${product.source_location}\n${product.seasonal_availability}`;
+
+          imageContainer.appendChild(image);
+          imageContainer.appendChild(textOverlay);
+
+          card.appendChild(imageContainer);
+
+          // Add event listeners to show/hide the text overlay on hover or click
+          imageContainer.addEventListener('mouseenter', () => {
+            textOverlay.classList.add('visible');
+            console.log("enter")
+          });
+
+          imageContainer.addEventListener('mouseleave', () => {
+            textOverlay.classList.remove('visible');
+            console.log("leave");
+          });
+
+          imageContainer.addEventListener('click', () => {
+            textOverlay.classList.toggle('visible');
+            console.log("click");
+          });
 
           const name = document.createElement("h2");
           name.textContent = product.name;
